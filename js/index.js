@@ -85,7 +85,7 @@ malAudioMap.set(WHAT_COLOR, WHAT_COLOR_ID);
 malAudioMap.set(WHAT_SIZE, WHAT_SIZE_ID);
 malAudioMap.set(IS_HEADACHE_GONE, IS_HEADACHE_GONE_ID);
 
-var audioMaps = array(engAudioMap,
+var audioMaps = Array(engAudioMap,
                       chiAudioMap,
                       japAudioMap,
                       frAudioMap,
@@ -111,7 +111,7 @@ var canFirstQuestionDatabase = Array(WHERE_HEADACHE,
 
 var malFirstQuestionDatabase = Array(WHERE_HEADACHE,
                                      WHERE_HEADACHE_NOW);
-var firstQuestionDatabases = array(engFirstQuestionDatabase,
+var firstQuestionDatabases = Array(engFirstQuestionDatabase,
                                   chiFirstQuestionDatabase,
                                   japFirstQuestionDatabase,
                                   frFirstQuestionDatabase,
@@ -143,7 +143,7 @@ var canQuestionDatabase = Array(WHAT_COLOR,
 var malQuestionDatabase = Array(WHAT_COLOR,
                                 WHAT_SHAPE,
                                 WHAT_SIZE);
-var questionDatabases = array(engQuestionDatabase,
+var questionDatabases = Array(engQuestionDatabase,
                                   chiQuestionDatabase,
                                   japQuestionDatabase,
                                   frQuestionDatabase,
@@ -156,12 +156,12 @@ var japlastQuestion = IS_HEADACHE_GONE;
 var frlastQuestion = IS_HEADACHE_GONE;
 var canlastQuestion = IS_HEADACHE_GONE;
 var mallastQuestion = IS_HEADACHE_GONE;
-var lastQuestions = [englastQuestion,
+var lastQuestions = Array(englastQuestion,
                      chilastQuestion,
                      japlastQuestion,
                      frlastQuestion,
                      canlastQuestion,
-                     mallastQuestion]
+                     mallastQuestion);
 
 var audioMap = audioMaps[langIndex];
 var firstQuestionDatabase = firstQuestionDatabases[langIndex];
