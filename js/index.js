@@ -200,7 +200,7 @@ var questionDatabase = Array(WHAT_COLOR,
 $('#lang').change(function () {
     var selection = this.value; //grab the value selected
     console.log(selection);
-    langIndex = langMaps.get(selection);
+    langIndex = languageMap.get(selection);
     audioMap = audioMaps[langIndex];
     firstQuestionDatabase = firstQuestionDatabases[langIndex];
     questionDatabase = questionDatabases[langIndex];
