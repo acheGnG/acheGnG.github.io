@@ -6,6 +6,8 @@ const WHAT_COLOR = "What color is it?";
 const WHAT_SIZE = "What size is it?";
 const IS_HEADACHE_GONE = "Is your headache gone now? By now it should be gone :) If not, click continue.";
 
+
+
 const WHERE_HEADACHE_ID = "a1";
 const WHERE_HEADACHE_NOW_ID = "a2";
 const WHAT_SHAPE_ID = "a3";
@@ -20,21 +22,151 @@ const WHAT_COLOR_LINK = "audio/what_color_issit.mp3";
 const WHAT_SIZE_LINK = "audio/what_size_issit.mp3";
 const IS_HEADACHE_GONE_LINK = "audio/headache_gone_now.mp3";
 
-var audioMap = new Map();
-audioMap.set(WHERE_HEADACHE, WHERE_HEADACHE_ID);
-audioMap.set(WHERE_HEADACHE_NOW, WHERE_HEADACHE_NOW_ID);
-audioMap.set(WHAT_SHAPE, WHAT_SHAPE_ID);
-audioMap.set(WHAT_COLOR, WHAT_COLOR_ID);
-audioMap.set(WHAT_SIZE, WHAT_SIZE_ID);
-audioMap.set(IS_HEADACHE_GONE, IS_HEADACHE_GONE_ID);
+const LANGUAGE_ENGLISH = "English";
+const LANGUAGE_CHINESE = "Chinese";
+const LANGUAGE_JAPANESE = "Japanese";
+const LANGUAGE_FRENCH = "French";
+const LANGUAGE_CANTONESE = "Cantonese";
+const LANGUAGE_MALAY = "Malay";
 
-var audioLinkMap = new Map();
-audioLinkMap.set(WHERE_HEADACHE, WHERE_HEADACHE_LINK);
-audioLinkMap.set(WHERE_HEADACHE_NOW, WHERE_HEADACHE_NOW_LINK);
-audioLinkMap.set(WHAT_SHAPE, WHAT_SHAPE_LINK);
-audioLinkMap.set(WHAT_COLOR, WHAT_COLOR_LINK);
-audioLinkMap.set(WHAT_SIZE, WHAT_SIZE_LINK);
-audioLinkMap.set(IS_HEADACHE_GONE, IS_HEADACHE_GONE_LINK);
+var languageMap = new Map();
+languageMap.set(LANGUAGE_ENGLISH, 0);
+languageMap.set(LANGUAGE_CHINESE, 1);
+languageMap.set(LANGUAGE_JAPANESE, 2);
+languageMap.set(LANGUAGE_FRENCH, 3);
+languageMap.set(LANGUAGE_CANTONESE, 4);
+languageMap.set(LANGUAGE_MALAY, 5);
+
+var engAudioMap = new Map();
+engAudioMap.set(WHERE_HEADACHE, WHERE_HEADACHE_ID);
+engAudioMap.set(WHERE_HEADACHE_NOW, WHERE_HEADACHE_NOW_ID);
+engAudioMap.set(WHAT_SHAPE, WHAT_SHAPE_ID);
+engAudioMap.set(WHAT_COLOR, WHAT_COLOR_ID);
+engAudioMap.set(WHAT_SIZE, WHAT_SIZE_ID);
+engAudioMap.set(IS_HEADACHE_GONE, IS_HEADACHE_GONE_ID);
+
+var chiAudioMap = new Map();
+chiAudioMap.set(WHERE_HEADACHE, WHERE_HEADACHE_ID);
+chiAudioMap.set(WHERE_HEADACHE_NOW, WHERE_HEADACHE_NOW_ID);
+chiAudioMap.set(WHAT_SHAPE, WHAT_SHAPE_ID);
+chiAudioMap.set(WHAT_COLOR, WHAT_COLOR_ID);
+chiAudioMap.set(WHAT_SIZE, WHAT_SIZE_ID);
+chiAudioMap.set(IS_HEADACHE_GONE, IS_HEADACHE_GONE_ID);
+
+var japAudioMap = new Map();
+japAudioMap.set(WHERE_HEADACHE, WHERE_HEADACHE_ID);
+japAudioMap.set(WHERE_HEADACHE_NOW, WHERE_HEADACHE_NOW_ID);
+japAudioMap.set(WHAT_SHAPE, WHAT_SHAPE_ID);
+japAudioMap.set(WHAT_COLOR, WHAT_COLOR_ID);
+japAudioMap.set(WHAT_SIZE, WHAT_SIZE_ID);
+japAudioMap.set(IS_HEADACHE_GONE, IS_HEADACHE_GONE_ID);
+
+var frAudioMap = new Map();
+frAudioMap.set(WHERE_HEADACHE, WHERE_HEADACHE_ID);
+frAudioMap.set(WHERE_HEADACHE_NOW, WHERE_HEADACHE_NOW_ID);
+frAudioMap.set(WHAT_SHAPE, WHAT_SHAPE_ID);
+frAudioMap.set(WHAT_COLOR, WHAT_COLOR_ID);
+frAudioMap.set(WHAT_SIZE, WHAT_SIZE_ID);
+frAudioMap.set(IS_HEADACHE_GONE, IS_HEADACHE_GONE_ID);
+
+var canAudioMap = new Map();
+canAudioMap.set(WHERE_HEADACHE, WHERE_HEADACHE_ID);
+canAudioMap.set(WHERE_HEADACHE_NOW, WHERE_HEADACHE_NOW_ID);
+canAudioMap.set(WHAT_SHAPE, WHAT_SHAPE_ID);
+canAudioMap.set(WHAT_COLOR, WHAT_COLOR_ID);
+canAudioMap.set(WHAT_SIZE, WHAT_SIZE_ID);
+canAudioMap.set(IS_HEADACHE_GONE, IS_HEADACHE_GONE_ID);
+
+var malAudioMap = new Map();
+malAudioMap.set(WHERE_HEADACHE, WHERE_HEADACHE_ID);
+malAudioMap.set(WHERE_HEADACHE_NOW, WHERE_HEADACHE_NOW_ID);
+malAudioMap.set(WHAT_SHAPE, WHAT_SHAPE_ID);
+malAudioMap.set(WHAT_COLOR, WHAT_COLOR_ID);
+malAudioMap.set(WHAT_SIZE, WHAT_SIZE_ID);
+malAudioMap.set(IS_HEADACHE_GONE, IS_HEADACHE_GONE_ID);
+
+var audioMaps = array(engAudioMap,
+                      chiAudioMap,
+                      japAudioMap,
+                      frAudioMap,
+                      canAudioMap,
+                      malAudioMap);
+
+var langIndex = 0;
+
+var engFirstQuestionDatabase = Array(WHERE_HEADACHE,
+                                     WHERE_HEADACHE_NOW);
+
+var chiFirstQuestionDatabase = Array(WHERE_HEADACHE,
+                                     WHERE_HEADACHE_NOW);
+
+var japFirstQuestionDatabase = Array(WHERE_HEADACHE,
+                                     WHERE_HEADACHE_NOW);
+
+var frFirstQuestionDatabase = Array(WHERE_HEADACHE,
+                                     WHERE_HEADACHE_NOW);
+
+var canFirstQuestionDatabase = Array(WHERE_HEADACHE,
+                                     WHERE_HEADACHE_NOW);
+
+var malFirstQuestionDatabase = Array(WHERE_HEADACHE,
+                                     WHERE_HEADACHE_NOW);
+var firstQuestionDatabases = array(engFirstQuestionDatabase,
+                                  chiFirstQuestionDatabase,
+                                  japFirstQuestionDatabase,
+                                  frFirstQuestionDatabase,
+                                  canFirstQuestionDatabase,
+                                  malFirstQuestionDatabase);
+
+
+
+var engQuestionDatabase = Array(WHAT_COLOR,
+                                WHAT_SHAPE,
+                                WHAT_SIZE);
+
+var chiQuestionDatabase = Array(WHAT_COLOR,
+                                WHAT_SHAPE,
+                                WHAT_SIZE);
+
+var japQuestionDatabase = Array(WHAT_COLOR,
+                                WHAT_SHAPE,
+                                WHAT_SIZE);
+
+var frQuestionDatabase = Array(WHAT_COLOR,
+                                WHAT_SHAPE,
+                                WHAT_SIZE);
+
+var canQuestionDatabase = Array(WHAT_COLOR,
+                                WHAT_SHAPE,
+                                WHAT_SIZE);
+
+var malQuestionDatabase = Array(WHAT_COLOR,
+                                WHAT_SHAPE,
+                                WHAT_SIZE);
+var questionDatabases = array(engQuestionDatabase,
+                                  chiQuestionDatabase,
+                                  japQuestionDatabase,
+                                  frQuestionDatabase,
+                                  canQuestionDatabase,
+                                  malQuestionDatabase);
+
+var englastQuestion = IS_HEADACHE_GONE;
+var chilastQuestion = IS_HEADACHE_GONE;
+var japlastQuestion = IS_HEADACHE_GONE;
+var frlastQuestion = IS_HEADACHE_GONE;
+var canlastQuestion = IS_HEADACHE_GONE;
+var mallastQuestion = IS_HEADACHE_GONE;
+var lastQuestions = [englastQuestion,
+                     chilastQuestion,
+                     japlastQuestion,
+                     frlastQuestion,
+                     canlastQuestion,
+                     mallastQuestion]
+
+var audioMap = audioMaps[langIndex];
+var firstQuestionDatabase = firstQuestionDatabases[langIndex];
+var questionDatabase = questionDatabases[langIndex];
+var lastQuestion = lastQuestions[langIndex];
 
 
 function shuffle(array) {
@@ -57,14 +189,23 @@ function shuffle(array) {
 }
 
 
-var firstQuestionDatabases = Array(WHERE_HEADACHE,
+var firstQuestionDatabase = Array(WHERE_HEADACHE,
                                    WHERE_HEADACHE_NOW);
 
-var questionDatabases = Array(WHAT_COLOR,
+var questionDatabase = Array(WHAT_COLOR,
                               WHAT_SHAPE,
                               WHAT_SIZE);
 
 
+$('#lang').change(function () {
+    var selection = this.value; //grab the value selected
+    console.log(selection);
+    langIndex = langMaps.get(selection);
+    audioMap = audioMaps[langIndex];
+    firstQuestionDatabase = firstQuestionDatabases[langIndex];
+    questionDatabase = questionDatabases[langIndex];
+    lastQuestion = lastQuestions[langIndex];
+});
 
 
 function toggleYesNo(visibility) {
@@ -157,46 +298,40 @@ function runCure() {
     loopQuestion();
 };
 
+
 function loopQuestion() {
     if (askId == -1) {
         toggleYesNo('visible');
         return;
     } else if (questionId == -1) {
-        audioId = audioMap.get(IS_HEADACHE_GONE);
-        audioLink = audioLinkMap.get(IS_HEADACHE_GONE);
+        audioId = audioMap.get(lastQuestion);
         var audioHtml = '#' + audioId;
 
         document
             .getElementById('question')
-            .innerHTML = IS_HEADACHE_GONE;
-        console.log(IS_HEADACHE_GONE);
+            .innerHTML = lastQuestion;
+        console.log(lastQuestion);
         $(audioHtml).get(0).currentTime = 0;
         $(audioHtml).get(0).play();
 
-        
-        //var audio = new Audio(audioLink);
-
-        //audio.addEventListener('ended', onAudioEnded);
-        //audio.play();
         askId = -1;
         return;
     }
 
-    var firstQuestion = firstQuestionDatabases[askId%2];
+    var firstQuestion = firstQuestionDatabase[askId%2];
     
 
 
     if (questionId == 0) {
-        questionTasks = shuffle(questionDatabases);
+        questionTasks = shuffle(questionDatabase);
         questions = Array(firstQuestion,
-                            questionDatabases[0],
-                            questionDatabases[1]//,
+                            questionDatabase[0],
+                            questionDatabase[1]//,
                             //IS_HEADACHE_GONE
                             );
     }
 
     audioId = audioMap.get(questions[questionId]);
-    audioLink = audioLinkMap.get(questions[questionId]);
     var audioHtml = '#' + audioId;
     
     document
@@ -214,10 +349,6 @@ function loopQuestion() {
     }
     $(audioHtml).get(0).currentTime = 0;
     $(audioHtml).get(0).play();
-    //var audio = new Audio(audioLink);
-    
-    //audio.addEventListener('ended', onAudioEnded);
-    //audio.play();
 
 }
 
