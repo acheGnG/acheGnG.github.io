@@ -264,21 +264,21 @@ function onAudioEnded() {
 };
 
 function toggleAnalyserDisplay(state) {
-    document.getElementById('analyser').style.display = state;
+    document.getElementById('analyser').style.visibility = state;
 }
 
 function runLoopQuestion() {
     if (questionId == 0) {
-        setTimeout(toggleAnalyserDisplay('block'), 1000);
+        setTimeout(toggleAnalyserDisplay('visible'), 1000);
     } else {
-        toggleAnalyserDisplay('block');
+        toggleAnalyserDisplay('visible');
     }
     setTimeout(loopQuestionWithoutRecording, 3000);
     
 }
 
 function loopQuestionWithoutRecording() {
-    toggleAnalyserDisplay('none');
+    toggleAnalyserDisplay('hidden');
     if (questionId == -1) {
         $("#record").trigger("click");
         $("#save")[0].click();
@@ -287,11 +287,11 @@ function loopQuestionWithoutRecording() {
 }
 
 function runCure() {
-    document.getElementById('curebtn').style.display = 'none';
-    document.getElementById('learnbtn').style.display = 'none';
-    document.getElementById('prompter1').style.display = 'none';  
-    document.getElementById('prompter2').style.display = 'none'; 
-    document.getElementById('prompter3').style.display = 'block';   
+    document.getElementById('curebtn').style.visibility = 'hidden';
+    document.getElementById('learnbtn').style.visibility = 'hidden';
+    document.getElementById('prompter1').style.visibility = 'hidden';
+    document.getElementById('prompter2').style.visibility = 'hidden';
+    document.getElementById('prompter3').style.visibility = 'visible';
     askId = 0;
     questionId = 0;
     $("#record").trigger("click");
