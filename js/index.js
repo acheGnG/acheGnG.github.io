@@ -287,6 +287,7 @@ function loopQuestionWithoutRecording() {
 }
 
 function runCure() {
+    document.getElementById('lang').style.display = 'none';
     document.getElementById('curebtn').style.display = 'none';
     document.getElementById('learnbtn').style.display = 'none';
     document.getElementById('prompter1').style.display = 'none';  
