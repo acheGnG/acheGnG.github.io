@@ -200,7 +200,7 @@ var questionDatabase = Array(WHAT_COLOR,
 $('#lang').change(function () {
     var selection = this.value; //grab the value selected
     console.log(selection);
-    langIndex = langMaps.get(selection);
+    langIndex = languageMap.get(selection);
     audioMap = audioMaps[langIndex];
     firstQuestionDatabase = firstQuestionDatabases[langIndex];
     questionDatabase = questionDatabases[langIndex];
@@ -264,21 +264,21 @@ function onAudioEnded() {
 };
 
 function toggleAnalyserDisplay(state) {
-    document.getElementById('analyser').style.display = state;
+    document.getElementById('analyser').style.visibility = state;
 }
 
 function runLoopQuestion() {
     if (questionId == 0) {
-        setTimeout(toggleAnalyserDisplay('block'), 1000);
+        setTimeout(toggleAnalyserDisplay('visible'), 1000);
     } else {
-        toggleAnalyserDisplay('block');
+        toggleAnalyserDisplay('visible');
     }
     setTimeout(loopQuestionWithoutRecording, 3000);
     
 }
 
 function loopQuestionWithoutRecording() {
-    toggleAnalyserDisplay('none');
+    toggleAnalyserDisplay('hidden');
     if (questionId == -1) {
         $("#record").trigger("click");
         $("#save")[0].click();
@@ -287,12 +287,14 @@ function loopQuestionWithoutRecording() {
 }
 
 function runCure() {
+
     document.getElementById('lang').style.display = 'none';
     document.getElementById('curebtn').style.display = 'none';
     document.getElementById('learnbtn').style.display = 'none';
-    document.getElementById('prompter1').style.display = 'none';  
-    document.getElementById('prompter2').style.display = 'none'; 
-    document.getElementById('prompter3').style.display = 'block';   
+    document.getElementById('prompter1').style.display = 'none';
+    document.getElementById('prompter2').style.display = 'none';
+    document.getElementById('prompter3').style.display = 'block';
+
     askId = 0;
     questionId = 0;
     $("#record").trigger("click");
