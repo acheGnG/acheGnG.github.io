@@ -421,6 +421,4 @@ function loopQuestion() {
 
 $(document).ready(function () {
     toggleYesNo('hidden');
-
-    
 });
