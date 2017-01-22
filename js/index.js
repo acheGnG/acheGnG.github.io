@@ -412,4 +412,9 @@ function loopQuestion() {
 
 $(document).ready(function () {
     toggleYesNo('hidden');
+
+    var canvas = document.getElementById('analyser');
+    var image = document.getElementById('iconimage');
+    image.style.left = canvas.width / 2 - image.width / 2;
+    image.style.top = canvas.height / 2 - image.height / 2;
 });
