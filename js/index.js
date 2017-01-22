@@ -50,40 +50,40 @@ const WHAT_COLOR_ID = "a4";
 const WHAT_SIZE_ID = "a5";
 const IS_HEADACHE_GONE_ID = "a6";
 
-const CHI_WHERE_HEADACHE_ID = "a1";
-const CHI_WHERE_HEADACHE_NOW_ID = "a2";
-const CHI_WHAT_SHAPE_ID = "a3";
-const CHI_WHAT_COLOR_ID = "a4";
-const CHI_WHAT_SIZE_ID = "a5";
-const CHI_IS_HEADACHE_GONE_ID = "a6";
+const CHI_WHERE_HEADACHE_ID = "chi1";
+const CHI_WHERE_HEADACHE_NOW_ID = "chi2";
+const CHI_WHAT_SHAPE_ID = "chi3";
+const CHI_WHAT_COLOR_ID = "chi4";
+const CHI_WHAT_SIZE_ID = "chi5";
+const CHI_IS_HEADACHE_GONE_ID = "chi6";
 
-const JAP_WHERE_HEADACHE_ID = "a1";
-const JAP_WHERE_HEADACHE_NOW_ID = "a2";
-const JAP_WHAT_SHAPE_ID = "a3";
-const JAP_WHAT_COLOR_ID = "a4";
-const JAP_WHAT_SIZE_ID = "a5";
-const JAP_IS_HEADACHE_GONE_ID = "a6";
+const JAP_WHERE_HEADACHE_ID = "jap1";
+const JAP_WHERE_HEADACHE_NOW_ID = "jap2";
+const JAP_WHAT_SHAPE_ID = "jap3";
+const JAP_WHAT_COLOR_ID = "jap4";
+const JAP_WHAT_SIZE_ID = "jap5";
+const JAP_IS_HEADACHE_GONE_ID = "jap6";
 
-const FR_WHERE_HEADACHE_ID = "a1";
-const FR_WHERE_HEADACHE_NOW_ID = "a2";
-const FR_WHAT_SHAPE_ID = "a3";
-const FR_WHAT_COLOR_ID = "a4";
-const FR_WHAT_SIZE_ID = "a5";
-const FR_IS_HEADACHE_GONE_ID = "a6";
+const FR_WHERE_HEADACHE_ID = "fr1";
+const FR_WHERE_HEADACHE_NOW_ID = "fr2";
+const FR_WHAT_SHAPE_ID = "fr3";
+const FR_WHAT_COLOR_ID = "fr4";
+const FR_WHAT_SIZE_ID = "fr5";
+const FR_IS_HEADACHE_GONE_ID = "fr6";
 
-const CAN_WHERE_HEADACHE_ID = "a1";
-const CAN_WHERE_HEADACHE_NOW_ID = "a2";
-const CAN_WHAT_SHAPE_ID = "a3";
-const CAN_WHAT_COLOR_ID = "a4";
-const CAN_WHAT_SIZE_ID = "a5";
-const CAN_IS_HEADACHE_GONE_ID = "a6";
+const CAN_WHERE_HEADACHE_ID = "can1";
+const CAN_WHERE_HEADACHE_NOW_ID = "can2";
+const CAN_WHAT_SHAPE_ID = "can3";
+const CAN_WHAT_COLOR_ID = "can4";
+const CAN_WHAT_SIZE_ID = "can5";
+const CAN_IS_HEADACHE_GONE_ID = "can6";
 
-const MAL_WHERE_HEADACHE_ID = "a1";
-const MAL_WHERE_HEADACHE_NOW_ID = "a2";
-const MAL_WHAT_SHAPE_ID = "a3";
-const MAL_WHAT_COLOR_ID = "a4";
-const MAL_WHAT_SIZE_ID = "a5";
-const MAL_IS_HEADACHE_GONE_ID = "a6";
+const MAL_WHERE_HEADACHE_ID = "mal1";
+const MAL_WHERE_HEADACHE_NOW_ID = "mal2";
+const MAL_WHAT_SHAPE_ID = "mal3";
+const MAL_WHAT_COLOR_ID = "mal4";
+const MAL_WHAT_SIZE_ID = "mal5";
+const MAL_IS_HEADACHE_GONE_ID = "mal6";
 
 const LANGUAGE_ENGLISH = "English";
 const LANGUAGE_CHINESE = "Chinese";
@@ -299,7 +299,9 @@ var audioId;
 
 function onAudioError() {
     var vid = document.getElementById(audioId);
-    if (vid.error.code == 1) {
+    if (!vid) {
+
+    } else if (vid.error.code == 1) {
         console.log('fetching process aborted by user');
     } else if (vid.error.code == 2) {
         console.log('error occurred when downloading');
@@ -348,6 +350,7 @@ function runCure() {
     document.getElementById('learnbtn').style.display = 'none';
     document.getElementById('prompter1').style.display = 'none';
     document.getElementById('prompter2').style.display = 'none';
+    document.getElementById('prompter3').style.display = 'block';
     document.getElementById('prompter3').style.display = 'block';
 
     askId = 0;
@@ -415,7 +418,7 @@ $(window).on('load', function () {
     var image = document.getElementById('iconimg');
     document.getElementById('iconimg').style.left = canvas.width / 2 - image.width / 2;
     document.getElementById('iconimg').style.top = canvas.height / 2 - image.height / 2;
-    document.getElementById('jumbotron').style.display = 'none';
+   // document.getElementById('jumbotron').style.display = 'none';
     //document.getElementById('jumbotron').style.display = 'block';
 });
 
