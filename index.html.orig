@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" href="img/icon.png">
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+    
+    <title>acheGnG</title>
+	<meta charset="utf-8" />
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link href='//fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+
+
+	<link rel="stylesheet" type="text/css" href="index.css">
+
+</head>
+<body>
+
+    <!-- audios -->
+    <audio id="a1" src="audio/where_is_your_headache.mp3" type="audio/mpeg" onended="onAudioEnded();" onerror="onAudioError();"></audio>
+
+    <audio id="a2" src="audio/where_is_your_headache_now.mp3" type="audio/mpeg" onended="onAudioEnded();" onerror="onAudioError();"></audio>
+
+    <audio id="a3" src="audio/what_shape_issit.mp3" type="audio/mpeg" onended="onAudioEnded();" onerror="onAudioError();"></audio>
+
+    <audio id="a4" src="audio/what_color_issit.mp3" type="audio/mpeg" onended="onAudioEnded();" onerror="onAudioError();">	</audio>
+
+    <audio id="a5" src="audio/what_size_issit.mp3" type="audio/mpeg" onended="onAudioEnded();" onerror="onAudioError();">	</audio>
+
+    <audio id="a6" src="audio/headache_gone_now.mp3" type="audio/mpeg" onended="onAudioEnded();" onerror="onAudioError();">	</audio>
+
+    <!-- Words -->
+
+    <div class="jumbotron text-center">
+<<<<<<< HEAD
+=======
+
+
+    	
+    	<img src="img/icon.png"/>
+>>>>>>> origin/HEAD
+
+        <img src="img/icon.png" />
+
+<<<<<<< HEAD
+        <br />
+=======
+	    <h1>Get your headache Go and Gone!</h1>
+>>>>>>> origin/HEAD
+
+        <h1>Get your headache Gone and Go!</h1>
+
+<<<<<<< HEAD
+        <br />
+=======
+	    <p id="prompter2" style="font-size: 14px">If this is your first visit Click "Learn Me!" for instructions</p>
+	    <p id="prompter1" >Else, Have a headache? Click "Cure Me!" </p> 
+
+	    <p id="prompter3" style="font-size: 14px"> p.s. you can close your eyes, relax and simply follow the audio instructions</p>
+
+
+	    <button type="button" class="btn btn-default" id="learnbtn" data-toggle="modal" data-target="#myModal"> Learn Me! </button>
+	    <button type="button" class="btn btn-default" id="curebtn">Cure Me!</button>
+>>>>>>> origin/HEAD
+
+        <p id="prompter">Have a headache? Click "Cure Me!"</p>
+        <button type="button" class="btn btn-default" id="curebtn">Cure Me!</button>
+
+<<<<<<< HEAD
+        <br />
+
+        <p id="question"></p>
+        <button type="button" class="btn btn-default" id="yesbtn" style="visibility:hidden">YES!</button>  &nbsp;
+
+        <button type="button" class="btn btn-default" id="nobtn" style="visibility:hidden">Continue!</button>
+
+        <div id="viz">
+            <canvas id="analyser" width="1024" height="500" style="display:none"></canvas>
+            <!--<canvas id="wavedisplay" width="1024" height="500"></canvas>-->
+        </div>
+
+        
+        <div id="controls">
+            <img id="record" src="img/mic128.png" onclick="toggleRecording(this);" style="display:none">
+            <a id="save" href="#"><img src="img/save.svg" style="display:none"></a>
+        </div>
+         
+=======
+	    <p id="question"></p>
+	    <button type="button" class="btn btn-default" id="yesbtn" style="visibility:hidden">My headache is GONE!</button>  &nbsp;
+>>>>>>> origin/HEAD
+
+
+
+
+    </div>
+<<<<<<< HEAD
+    <!--
+=======
+
+
+    <!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">How do i work?</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p> 
+				"Liked" by over 30 THOUSAND PEOPLE and watch by over 2 MILLION VIEWERS on <a href="https://www.youtube.com/watch?v=UKGtv84aSjo">YouTube</a>. 	
+			</p>
+			<p>
+	        	 Inspired by Kamil (YouTube), this tiny web app helps gets rid of Headache or Migraine efficiently in 2 minutes or less! It works with mild and strong headaches!
+	        </p>
+			<p>
+	        	To get rid of headaches, simply answer the questions asked out loud (don't have to shout XD). Do not feel ridicule, just trust the app!
+	        </p>
+			<p>
+	        	Believe it or not? Try it yourself now!
+			</p>
+
+			<p>
+	        	Simple Idea, Big Impact - Team Heal.Me.
+			</p>
+
+	        </p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+
+	  </div>
+	</div>
+
+
+<!-- 
+>>>>>>> origin/HEAD
+
+        <div class="container container-table">
+
+            <div class row vertical-center-row>
+                <div class="text-center col-md-4 col-md-offset-4">
+
+                        <img src="img/icon.png"/>
+
+                        <h1>Get your headache Gone and Go!</h1>
+                        <p>Have a headache? Click "Cure Me!"</p>
+                        <button type="button" id="curebtn">Cure Me!</button>
+
+                        <br/>
+
+                        <p id="question"></p>
+                        <button type="button" id="yesbtn" style="visibility:hidden">YES!</button>
+                        <button type="button" id="nobtn" style="visibility:hidden">Continue!</button>
+
+                </div>
+            </div>
+
+        </div>
+     -->
+    
+
+
+<<<<<<< HEAD
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/audiodisplay.js"></script>
+    <script type="text/javascript" src="js/recorderjs/recorder.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+=======
+    <script type="text/javascript">
+    	
+ //   	window.addEventListener("load",function() {
+	//     setTimeout(function(){
+	//         // This hides the address bar:
+	//         window.scrollTo(0, 1);
+	//     }, 0);
+	// });
+
+
+	$( document ).ready(function() {
+	    window.scrollTo(0, 1);
+	});
+ 
+>>>>>>> origin/HEAD
+
+</body>
+
+
+</html>
