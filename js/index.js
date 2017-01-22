@@ -279,7 +279,8 @@ $("#nobtn").click(function () {
 
 
 $("#yesbtn").click(function () {
-    document.getElementById('curebtn').style.visibility = 'visible';
+    document.getElementById('curebtn').style.display = 'block';
+    document.getElementById('lang').style.display = 'none';
     toggleYesNo('hidden');
 
 
@@ -363,8 +364,9 @@ function runCure() {
 const audioHtml = '#audio';
 function loopQuestion() {
     if (askId == -1) {
-        document.getElementById('iconimg').style.display = 'block';
         toggleAnalyserDisplay('none');
+
+        document.getElementById('iconimg').style.display = 'block';
         toggleYesNo('visible');
         document.getElementById('lang').style.display = 'block';
         return;
