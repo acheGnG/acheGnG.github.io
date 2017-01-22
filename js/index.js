@@ -321,21 +321,21 @@ function onAudioEnded() {
 };
 
 function toggleAnalyserDisplay(state) {
-    document.getElementById('analyser').style.visibility = state;
+    document.getElementById('analyser').style.display = state;
 }
 
 function runLoopQuestion() {
     if (questionId == 0) {
-        setTimeout(toggleAnalyserDisplay('visible'), 1000);
+        setTimeout(toggleAnalyserDisplay('block'), 1000);
     } else {
-        toggleAnalyserDisplay('visible');
+        toggleAnalyserDisplay('block');
     }
     setTimeout(loopQuestionWithoutRecording, 3000);
     
 }
 
 function loopQuestionWithoutRecording() {
-    toggleAnalyserDisplay('hidden');
+    //toggleAnalyserDisplay('hidden');
     if (questionId == -1) {
         $("#record").trigger("click");
         $("#save")[0].click();
@@ -344,12 +344,13 @@ function loopQuestionWithoutRecording() {
 }
 
 function runCure() {
-
+    toggleAnalyserDisplay('block');
     document.getElementById('lang').style.display = 'none';
     document.getElementById('curebtn').style.display = 'none';
     document.getElementById('learnbtn').style.display = 'none';
     document.getElementById('prompter1').style.display = 'none';
     document.getElementById('prompter2').style.display = 'none';
+    document.getElementById('iconimg').style.display = 'none';
     document.getElementById('prompter3').style.display = 'block';
     document.getElementById('prompter3').style.display = 'block';
 
@@ -362,7 +363,10 @@ function runCure() {
 const audioHtml = '#audio';
 function loopQuestion() {
     if (askId == -1) {
+        document.getElementById('iconimg').style.display = 'block';
+        toggleAnalyserDisplay('none');
         toggleYesNo('visible');
+        document.getElementById('lang').style.display = 'block';
         return;
     } else if (questionId == -1) {
         audioId = audioMap.get(lastQuestion);
@@ -414,16 +418,6 @@ function loopQuestion() {
     $(audioHtml).get(0).play();
 
 }
-
-$(window).on('load', function () {
-    var canvas = document.getElementById('analyser');
-    var image = document.getElementById('iconimg');
-    document.getElementById('iconimg').style.left = canvas.width / 2 - image.width / 2;
-    document.getElementById('iconimg').style.top = canvas.height / 2 - image.height / 2;
-   // document.getElementById('jumbotron').style.display = 'none';
-    //document.getElementById('jumbotron').style.display = 'block';
-});
-
 
 $(document).ready(function () {
     toggleYesNo('hidden');
