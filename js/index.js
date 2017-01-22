@@ -13,12 +13,12 @@ const CHI_WHAT_COLOR = "它是什么颜色?";
 const CHI_WHAT_SIZE = "它是什么尺寸？";
 const CHI_IS_HEADACHE_GONE = "你还有头痛吗？现在应该不觉得头痛了吧？ :) 如果还觉得头痛，请点击 continue。";
 
-const JAP_WHERE_HEADACHE = "你的头痛在哪里？";
-const JAP_WHERE_HEADACHE_NOW = "你的头痛现在在哪里？";
-const JAP_WHAT_SHAPE = "它是什么形状？";
-const JAP_WHAT_COLOR = "它是什么颜色？";
-const JAP_WHAT_SIZE = "它是什么尺寸？";
-const JAP_IS_HEADACHE_GONE = "你还有头痛吗？现在应该不觉得头痛了吧？ :) 如果还觉得头痛，请点击 continue。";
+const JAP_WHERE_HEADACHE = "あなたの頭痛はどこですか?";
+const JAP_WHERE_HEADACHE_NOW = "あなたの頭痛はどこにありますか?";
+const JAP_WHAT_SHAPE = "それはどんな形ですか?";
+const JAP_WHAT_COLOR = "何色ですか?";
+const JAP_WHAT_SIZE = "それはどんなサイズですか?";
+const JAP_IS_HEADACHE_GONE = "まだ 頭痛がしますか？今 たぶん 頭痛がしませんか？もし 頭痛がずっと 続くて、Continue ボタンをクリックしてください";
 
 const FR_WHERE_HEADACHE = "Où est votre mal à la tête?";
 const FR_WHERE_HEADACHE_NOW = "Où est votre mal à la tête maintenant?";
@@ -410,11 +410,18 @@ function loopQuestion() {
 
 }
 
+$(window).on('load', function () {
+    var canvas = document.getElementById('analyser');
+    var image = document.getElementById('iconimg');
+    document.getElementById('iconimg').style.left = canvas.width / 2 - image.width / 2;
+    document.getElementById('iconimg').style.top = canvas.height / 2 - image.height / 2;
+    document.getElementById('jumbotron').style.display = 'none';
+    //document.getElementById('jumbotron').style.display = 'block';
+});
+
+
 $(document).ready(function () {
     toggleYesNo('hidden');
 
-    var canvas = document.getElementById('analyser');
-    var image = document.getElementById('iconimage');
-    image.style.left = canvas.width / 2 - image.width / 2;
-    image.style.top = canvas.height / 2 - image.height / 2;
+    
 });
