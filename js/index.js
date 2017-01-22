@@ -40,7 +40,8 @@ const MAL_WHERE_HEADACHE_NOW = "Mana sakit kepala mu sekarang?";
 const MAL_WHAT_SHAPE = "Apa bentuk itu?";
 const MAL_WHAT_COLOR = "Apa warna itu?";
 const MAL_WHAT_SIZE = "Apa saiz itu?";
-const MAL_IS_HEADACHE_GONE = "Kamu masih sakit kepala? Sekarang sepatutnya tak berasa sakit kepala lagi :) Kalau kamu masih berasa sakit kepala, sila tekan continue。";
+const MAL_IS_HEADACHE_GONE = "Kamu masih sakit kepala? Sekarang sepatutnya tak berasa sakit kepala lagi :) " +
+                             "Kalau kamu masih berasa sakit kepala, sila tekan continue.";
 
 const WHERE_HEADACHE_ID = "a1";
 const WHERE_HEADACHE_NOW_ID = "a2";
