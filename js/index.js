@@ -43,47 +43,47 @@ const MAL_WHAT_SIZE = "Apa saiz itu?";
 const MAL_IS_HEADACHE_GONE = "Kamu masih sakit kepala? Sekarang sepatutnya tak berasa sakit kepala lagi :) " +
                              "Kalau kamu masih berasa sakit kepala, sila tekan continue.";
 
-const WHERE_HEADACHE_ID = "a1";
-const WHERE_HEADACHE_NOW_ID = "a2";
-const WHAT_SHAPE_ID = "a3";
-const WHAT_COLOR_ID = "a4";
-const WHAT_SIZE_ID = "a5";
-const IS_HEADACHE_GONE_ID = "a6";
+const WHERE_HEADACHE_ID = "audio/where_is_your_headache.mp3";
+const WHERE_HEADACHE_NOW_ID = "audio/where_is_your_headache_now.mp3";
+const WHAT_SHAPE_ID = "audio/what_shape_issit.mp3";
+const WHAT_COLOR_ID = "audio/what_color_issit.mp3";
+const WHAT_SIZE_ID = "audio/what_size_issit.mp3";
+const IS_HEADACHE_GONE_ID = "audio/headache_gone_now.mp3";
 
-const CHI_WHERE_HEADACHE_ID = "chi1";
-const CHI_WHERE_HEADACHE_NOW_ID = "chi2";
-const CHI_WHAT_SHAPE_ID = "chi3";
-const CHI_WHAT_COLOR_ID = "chi4";
-const CHI_WHAT_SIZE_ID = "chi5";
-const CHI_IS_HEADACHE_GONE_ID = "chi6";
+const CHI_WHERE_HEADACHE_ID = "audio/chi_a1.mp3";
+const CHI_WHERE_HEADACHE_NOW_ID = "audio/chi_a5.mp3";
+const CHI_WHAT_SHAPE_ID = "audio/chi_a3.mp3";
+const CHI_WHAT_COLOR_ID = "audio/chi_a2.mp3";
+const CHI_WHAT_SIZE_ID = "audio/chi_a4.mp3";
+const CHI_IS_HEADACHE_GONE_ID = "audio/chi_a6.mp3";
 
-const JAP_WHERE_HEADACHE_ID = "jap1";
-const JAP_WHERE_HEADACHE_NOW_ID = "jap2";
-const JAP_WHAT_SHAPE_ID = "jap3";
-const JAP_WHAT_COLOR_ID = "jap4";
-const JAP_WHAT_SIZE_ID = "jap5";
-const JAP_IS_HEADACHE_GONE_ID = "jap6";
+const JAP_WHERE_HEADACHE_ID = "audio/jap_a1.mp3";
+const JAP_WHERE_HEADACHE_NOW_ID = "audio/jap_a5.mp3";
+const JAP_WHAT_SHAPE_ID = "audio/jap_a3.mp3";
+const JAP_WHAT_COLOR_ID = "audio/jap_a2.mp3";
+const JAP_WHAT_SIZE_ID = "audio/jap_a4.mp3";
+const JAP_IS_HEADACHE_GONE_ID = "audio/jap_a6.mp3";
 
-const FR_WHERE_HEADACHE_ID = "fr1";
-const FR_WHERE_HEADACHE_NOW_ID = "fr2";
-const FR_WHAT_SHAPE_ID = "fr3";
-const FR_WHAT_COLOR_ID = "fr4";
-const FR_WHAT_SIZE_ID = "fr5";
-const FR_IS_HEADACHE_GONE_ID = "fr6";
+const FR_WHERE_HEADACHE_ID = "audio/frh_a1.mp3";
+const FR_WHERE_HEADACHE_NOW_ID = "audio/frh_a5.mp3";
+const FR_WHAT_SHAPE_ID = "audio/frh_a3.mp3";
+const FR_WHAT_COLOR_ID = "audio/frh_a2.mp3";
+const FR_WHAT_SIZE_ID = "audio/frh_a4.mp3";
+const FR_IS_HEADACHE_GONE_ID = "audio/frh_a6.mp3";
 
-const CAN_WHERE_HEADACHE_ID = "can1";
-const CAN_WHERE_HEADACHE_NOW_ID = "can2";
-const CAN_WHAT_SHAPE_ID = "can3";
-const CAN_WHAT_COLOR_ID = "can4";
-const CAN_WHAT_SIZE_ID = "can5";
-const CAN_IS_HEADACHE_GONE_ID = "can6";
+const CAN_WHERE_HEADACHE_ID = "audio/cat_a1.mp3";
+const CAN_WHERE_HEADACHE_NOW_ID = "audio/cat_a5.mp3";
+const CAN_WHAT_SHAPE_ID = "audio/cat_a3.mp3";
+const CAN_WHAT_COLOR_ID = "audio/cat_a2.mp3";
+const CAN_WHAT_SIZE_ID = "audio/cat_a4.mp3";
+const CAN_IS_HEADACHE_GONE_ID = "audio/cat_a6.mp3";
 
-const MAL_WHERE_HEADACHE_ID = "mal1";
-const MAL_WHERE_HEADACHE_NOW_ID = "mal2";
-const MAL_WHAT_SHAPE_ID = "mal3";
-const MAL_WHAT_COLOR_ID = "mal4";
-const MAL_WHAT_SIZE_ID = "mal5";
-const MAL_IS_HEADACHE_GONE_ID = "mal6";
+const MAL_WHERE_HEADACHE_ID = "audio/mly_a1.mp3";
+const MAL_WHERE_HEADACHE_NOW_ID = "audio/mly_a5.mp3";
+const MAL_WHAT_SHAPE_ID = "audio/mly_a3.mp3";
+const MAL_WHAT_COLOR_ID = "audio/mly_a2.mp3";
+const MAL_WHAT_SIZE_ID = "audio/mly_a4.mp3";
+const MAL_IS_HEADACHE_GONE_ID = "audio/mly_a6.mp3";
 
 const LANGUAGE_ENGLISH = "English";
 const LANGUAGE_CHINESE = "Chinese";
@@ -359,19 +359,20 @@ function runCure() {
     loopQuestion();
 };
 
-
+const audioHtml = '#audio';
 function loopQuestion() {
     if (askId == -1) {
         toggleYesNo('visible');
         return;
     } else if (questionId == -1) {
         audioId = audioMap.get(lastQuestion);
-        var audioHtml = '#' + audioId;
 
         document
             .getElementById('question')
             .innerHTML = lastQuestion;
         console.log(lastQuestion);
+        $(audioHtml).get(0).src = audioId;
+        $(audioHtml).get(0).type = "audio/mpeg";
         $(audioHtml).get(0).currentTime = 0;
         $(audioHtml).get(0).play();
 
@@ -393,7 +394,6 @@ function loopQuestion() {
     }
 
     audioId = audioMap.get(questions[questionId]);
-    var audioHtml = '#' + audioId;
     
     document
         .getElementById('question')
@@ -408,6 +408,8 @@ function loopQuestion() {
             questionId = -1;
         }
     }
+    $(audioHtml).get(0).src = audioId;
+    $(audioHtml).get(0).type = "audio/mpeg";
     $(audioHtml).get(0).currentTime = 0;
     $(audioHtml).get(0).play();
 
